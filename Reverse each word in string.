@@ -1,0 +1,35 @@
+class Solution
+{
+  public:
+    string reverseWords (string s)
+    {
+            int i=0;
+            stack<char>st;
+               string ans="";
+        while(i<s.size()){
+            int j=i;
+            while(i<s.size() and s[i]!='.'){
+             
+                i++;
+            }
+          
+        
+            while(j<i){
+                st.push(s[j]);
+                j++;
+            }
+            while(!st.empty()){
+                ans+=st.top();
+                st.pop();
+            }
+             if (j < s.size() && s[j] == '.') {
+                ans += '.';  // Preserve the period between words
+                j++;
+            }
+            i++;
+            
+            
+        }
+        return ans;
+    }
+};
